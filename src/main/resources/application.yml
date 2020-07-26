@@ -1,11 +1,9 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: testdb
-    password: shhdhh27sk?
-  h2:
-    console:
-      enabled: True
+    url: jdbc:mysql://localhost:3306/ga-db
+    username: root
+    password: admin
+
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
