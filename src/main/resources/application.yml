@@ -4,5 +4,8 @@ spring:
     driverClassName: org.h2.Driver
     username: testdb
     password: shhdhh27sk?
+  h2:
+    console:
+      enabled: True
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
