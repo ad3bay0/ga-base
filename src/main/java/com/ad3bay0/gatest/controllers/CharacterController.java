@@ -3,6 +3,7 @@ package com.ad3bay0.gatest.controllers;
 import javax.validation.Valid;
 
 import com.ad3bay0.gatest.dto.CharacterDto;
+import com.ad3bay0.gatest.dto.CharacterFilterDto;
 import com.ad3bay0.gatest.models.Character;
 import com.ad3bay0.gatest.services.CharacterService;
 import org.springframework.data.domain.Page;
@@ -17,18 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/characters")
 @Api(tags = "Characters")
+@RequiredArgsConstructor
 public class CharacterController {
 
-    private CharacterService service;
-
-    public CharacterController(CharacterService service){
-        this.service = service;
-
-    }
+    private final CharacterService service;
 
     @ApiOperation(value = "Create a character")
     @PostMapping
@@ -42,9 +40,9 @@ public class CharacterController {
     @ApiOperation(value = "List of characters")
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public Page<Character> getAll(Pageable pageable){
+    public Page<Character> getAll(Pageable pageable, CharacterFilterDto filter){
 
-        return service.findAll(pageable);
+        return service.findAll(pageable,filter);
     }
     
 }

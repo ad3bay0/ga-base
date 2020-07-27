@@ -16,4 +16,5 @@ public class CharacterDto {
     private String status;
     @NotBlank(message = "gender is mandatory")
     private String gender;
+    private Integer location;
 }
