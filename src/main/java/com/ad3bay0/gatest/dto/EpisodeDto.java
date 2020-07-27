@@ -14,6 +14,8 @@ import lombok.Data;
 @JsonIgnoreProperties(value = { "commentsCount" }, allowGetters = true)
 public class EpisodeDto {
 
+    private Integer id;
+
     @NotBlank(message = "name is mandatory")
     private String name;
 

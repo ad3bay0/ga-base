@@ -9,6 +9,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.hibernate.annotations.ManyToAny;
 
 import lombok.Getter;
@@ -28,9 +30,11 @@ public class Episode extends BaseModel {
     @Column(nullable = false)
     private String episodeCode;
 
+    @JsonIgnore
     @ManyToMany
     private List<Character> characters;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "episode")
     private List<Comment> episodeComments;
 

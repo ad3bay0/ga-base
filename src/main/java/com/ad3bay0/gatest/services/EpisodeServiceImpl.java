@@ -46,7 +46,6 @@ public class EpisodeServiceImpl implements EpisodeService {
     }
 
     @Override
-    @Transactional
     public Episode addComment(CommentDto dto, Integer episodeId) {
         
          Episode episode = this.repository.findById(episodeId)
@@ -57,8 +56,6 @@ public class EpisodeServiceImpl implements EpisodeService {
          comment = commentRepository.save(comment);
 
          episode.addComment(comment);
-
-         this.repository.save(episode);
 
         return this.repository.save(episode);
     }

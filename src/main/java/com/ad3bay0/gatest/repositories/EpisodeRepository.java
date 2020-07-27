@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EpisodeRepository extends JpaRepository<Episode, Integer> {
 
-    @Query("select new com.ad3bay0.gatest.dto.EpisodeDto(e.name,e.releaseDate,e.episodeCode,size(e.episodeComments)) from Episode e ORDER BY e.releaseDate ASC")
+    @Query("select new com.ad3bay0.gatest.dto.EpisodeDto(e.id, e.name,e.releaseDate,e.episodeCode,size(e.episodeComments)) from Episode e ORDER BY e.releaseDate ASC")
     Page<EpisodeDto> findAllOrderByReleasedDateAsc(Pageable pageable);
     
 }
