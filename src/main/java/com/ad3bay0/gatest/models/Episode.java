@@ -33,5 +33,11 @@ public class Episode extends BaseModel {
 
     @OneToMany(mappedBy = "episode")
     private List<Comment> episodeComments;
+
+    public void addComment(Comment comment){
+        
+        this.episodeComments.add(comment);
+        comment.setEpisode(this);
+    }
     
 }
