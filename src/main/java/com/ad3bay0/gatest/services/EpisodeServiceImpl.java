@@ -5,6 +5,8 @@ import com.ad3bay0.gatest.models.Episode;
 import com.ad3bay0.gatest.repositories.EpisodeRepository;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,10 +24,18 @@ public class EpisodeServiceImpl implements EpisodeService {
 
     @Override
     public Episode save(EpisodeDto dto) {
-        
+
         Episode episode = modelMapper.map(dto, Episode.class);
-        
+
         return this.repository.save(episode);
 
     }
+
+    @Override
+    public Page<EpisodeDto> findAll(Pageable pageable) {
+        
+        return this.repository.findAllOrderByReleasedDateAsc(pageable);
+    }
+
+    
 }
