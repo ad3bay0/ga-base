@@ -16,6 +16,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterServiceImpl(CharacterRepository repository, ModelMapper modelMapper) {
 
         this.repository = repository;
+        this.modelMapper = modelMapper;
 
     }
 
