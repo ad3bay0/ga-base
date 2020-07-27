@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.hibernate.annotations.ManyToAny;
-
 import lombok.Getter;
 import lombok.Setter;
 

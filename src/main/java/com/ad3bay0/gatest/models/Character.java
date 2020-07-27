@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import com.ad3bay0.gatest.enums.Gender;
 import com.ad3bay0.gatest.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +42,7 @@ public class Character extends BaseModel{
     @OneToOne(mappedBy = "character")
     private Location location;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "characters")
     private List<Episode> episodes;
     

@@ -5,6 +5,8 @@ import com.ad3bay0.gatest.models.Character;
 import com.ad3bay0.gatest.repositories.CharacterRepository;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,10 +24,16 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public Character save(CharacterDto dto) {
-        
+
         Character character = modelMapper.map(dto, Character.class);
-        
+
         return this.repository.save(character);
+    }
+
+    @Override
+    public Page<Character> findAll(Pageable pageable) {
+        
+        return this.repository.findAll(pageable);
     }
     
 }

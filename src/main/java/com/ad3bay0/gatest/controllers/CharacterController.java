@@ -5,8 +5,10 @@ import javax.validation.Valid;
 import com.ad3bay0.gatest.dto.CharacterDto;
 import com.ad3bay0.gatest.models.Character;
 import com.ad3bay0.gatest.services.CharacterService;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,15 @@ public class CharacterController {
     public Character create(@Valid @RequestBody CharacterDto character){
 
         return service.save(character);
+    }
+
+
+    @ApiOperation(value = "List of characters")
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    public Page<Character> getAll(Pageable pageable){
+
+        return service.findAll(pageable);
     }
     
 }
