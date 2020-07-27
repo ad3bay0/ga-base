@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/characters")
-@Api(tags = "Character API")
+@Api(tags = "Characters")
 public class CharacterController {
 
     private CharacterService service;
@@ -27,6 +28,7 @@ public class CharacterController {
 
     }
 
+    @ApiOperation(value = "Create a character")
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public Character create(@Valid @RequestBody CharacterDto character){
