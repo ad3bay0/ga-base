@@ -7,15 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
 
-    private CommentRepository repository;
-
-    public CommentServiceImpl(CommentRepository repository) {
-
-        this.repository = repository;
-    }
+    private final CommentRepository repository;
 
     @Override
     public Page<Comment> findAll(Pageable pageable) {

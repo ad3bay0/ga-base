@@ -13,22 +13,16 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class EpisodeServiceImpl implements EpisodeService {
 
-    private EpisodeRepository repository;
-    private ModelMapper modelMapper;
-    private CommentRepository commentRepository;
-
-    public EpisodeServiceImpl(EpisodeRepository repository, ModelMapper modelMapper, CommentRepository commentRepository) {
-
-        this.repository = repository;
-        this.modelMapper = modelMapper;
-        this.commentRepository = commentRepository;
-
-    }
+    private final EpisodeRepository repository;
+    private final ModelMapper modelMapper;
+    private final CommentRepository commentRepository;
 
     @Override
     public Episode save(EpisodeDto dto) {

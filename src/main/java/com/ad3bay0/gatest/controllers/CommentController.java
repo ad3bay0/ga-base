@@ -13,18 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/comments")
 @Api(tags = "Comments")
+@RequiredArgsConstructor
 public class CommentController {
 
-    private CommentService service;
+    private final CommentService service;
 
-    public CommentController(CommentService service){
-        this.service = service;
-
-    }
 
 
     @ApiOperation(value = "List of comments")

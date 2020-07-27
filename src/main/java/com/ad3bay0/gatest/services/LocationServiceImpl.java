@@ -4,15 +4,13 @@ import com.ad3bay0.gatest.repositories.LocationRepository;
 
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class LocationServiceImpl implements LocationService {
 
-    private LocationRepository locationRepository;
+    private final LocationRepository locationRepository;
 
-    public LocationServiceImpl(LocationRepository locationRepository){
-
-        this.locationRepository = locationRepository;
-
-    }
     
 }
