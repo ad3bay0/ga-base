@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @RequestMapping
-@Api(tags = "Home API")
+@Api(tags = "Home")
 public class HomeController {
 
     @GetMapping("/")
