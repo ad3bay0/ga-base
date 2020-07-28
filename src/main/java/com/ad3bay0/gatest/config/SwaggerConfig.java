@@ -32,8 +32,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
 
         return new ApiInfo(
-            "API ENDPOINTS", 
-            "GAtest api endpoints",
+            "GAtest Api endpoints", 
+            "GAtest Api endpoints",
              "v1", 
              "", 
              new Contact("ad3bay0", "https://github.com/ad3bay0", "adebeslick@gmail.com"), 

@@ -26,7 +26,7 @@ public class GlobalExceptionHandler extends  ResponseEntityExceptionHandler{
         ApiError apiError =  new ApiError(
             HttpStatus.INTERNAL_SERVER_ERROR, 
             ex.getMessage(),
-            "an error occured, try again later");
+            "An error occured, try again later");
 
         return new ResponseEntity<>(apiError,apiError.getStatus());
 
