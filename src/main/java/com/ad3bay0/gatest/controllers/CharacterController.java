@@ -4,8 +4,10 @@ import javax.validation.Valid;
 
 import com.ad3bay0.gatest.dto.CharacterDto;
 import com.ad3bay0.gatest.dto.CharacterFilterDto;
+import com.ad3bay0.gatest.dto.LocationDto;
 import com.ad3bay0.gatest.models.Character;
 import com.ad3bay0.gatest.models.Episode;
+import com.ad3bay0.gatest.models.Location;
 import com.ad3bay0.gatest.services.CharacterService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -53,6 +55,16 @@ public class CharacterController {
     public Page<Episode> getCharacterEpisodes( @PathVariable("characterId") Integer characterId, Pageable pageable){
 
         return service.getEpisodesByCharacterId(pageable,characterId);
+    }
+
+
+    @ApiOperation(value = "Add chracter location")
+    @PostMapping("/{characterId}/add-location")
+    @ResponseStatus(code = HttpStatus.OK)
+    public Location addLocation(@PathVariable("characterId") Integer characterId, 
+                          @Valid @RequestBody LocationDto location){
+
+        return service.addLocation(location, characterId);
     }
     
 }

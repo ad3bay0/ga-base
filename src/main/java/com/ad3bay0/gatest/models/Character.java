@@ -39,6 +39,7 @@ public class Character extends BaseModel{
     @Column(nullable = false)
     private Gender gender;
 
+    
     @OneToOne(mappedBy = "character")
     private Location location;
 
